@@ -5,8 +5,8 @@ from statsmodels.miscmodels.ordinal_model import OrderedModel
 import statsmodels.api as sm
 
 
-a_df = pd.read_csv('films_by_decade_country_genre.csv')
-b_df = pd.read_csv('rating_percentages_by_country.csv')
+a_df = pd.read_csv('./data/films_by_decade_country_genre.csv')
+b_df = pd.read_csv('./data/rating_percentages_by_country.csv')
 
 # 1. Chi-Square Test (RQ1): Association between Genre, Country, and Bechdel Score
 def chi_square_test(data):
@@ -57,7 +57,7 @@ def kruskal_b(data):
     usa_scores = data[data['country'] == 'USA'][['p0', 'p1', 'p2', 'pPassed']].values.flatten()
     others_scores = data[data['country'] == 'Others'][['p0', 'p1', 'p2', 'pPassed']].values.flatten()
     stat, p = kruskal(usa_scores, others_scores)
-    print(f"Kruskal-Wallis on Countries (b.csv):\nStatistic: {stat}, p-value: {p}\n")
+    print(f"Kruskal-Wallis on Countries:\nStatistic: {stat}, p-value: {p}\n")
 
 print("\n--- Test Results ---\n")
 chi2, contingency_table = chi_square_test(a_df)
