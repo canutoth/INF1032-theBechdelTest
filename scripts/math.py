@@ -4,14 +4,16 @@ from scipy.stats import chi2_contingency, spearmanr, kruskal, f_oneway
 from statsmodels.miscmodels.ordinal_model import OrderedModel
 import statsmodels.api as sm
 
+# Load the data
 a_df = pd.read_csv('a.csv')
 b_df = pd.read_csv('b.csv')
 
-# 1. Chi-Square Test (RQ1): Association between Genre, Nationality, and Bechdel Score
+# 1. Chi-Square Test (RQ1): Association between Genre, Country, and Bechdel Score
 def chi_square_test(data):
     contingency_table = pd.crosstab([data['country'], data['genre']], data['rating'])
     chi2, p, dof, expected = chi2_contingency(contingency_table)
     print(f"Chi-Square Test:\nChi2: {chi2}, p-value: {p}\n")
+    return chi2, contingency_table
 
 # 2. Cramér's V for Strength of Association after Chi-Square
 def cramers_v(chi2, contingency_table):
@@ -51,16 +53,17 @@ def tukey_posthoc(data):
     print(f"Tukey HSD Post-hoc Test:\n{result}\n")
 
 # Functions to handle the second dataset (b.csv)
-# Using Kruskal-Wallis for comparing Bechdel Test distributions across nationalities (BR, USA, Others)
+# Using Kruskal-Wallis for comparing Bechdel Test distributions across nationalities (USA, Others)
 def kruskal_b(data):
-    br_scores = data[data['country'] == 'BR'][['p0', 'p1', 'p2', 'pPassed']].values.flatten()
-    usa_scores = data[data['country'] == 'EUA'][['p0', 'p1', 'p2', 'pPassed']].values.flatten()
-    others_scores = data[data['country'] == 'Outros'][['p0', 'p1', 'p2', 'pPassed']].values.flatten()
-    stat, p = kruskal(br_scores, usa_scores, others_scores)
-    print(f"Kruskal-Wallis on Nationalities:\nStatistic: {stat}, p-value: {p}\n")
+    usa_scores = data[data['country'] == 'USA'][['p0', 'p1', 'p2', 'pPassed']].values.flatten()
+    others_scores = data[data['country'] == 'Others'][['p0', 'p1', 'p2', 'pPassed']].values.flatten()
+    stat, p = kruskal(usa_scores, others_scores)
+    print(f"Kruskal-Wallis on Countries (b.csv):\nStatistic: {stat}, p-value: {p}\n")
 
+# Execute tests on the first dataset (a.csv)
 print("\n--- Test Results ---\n")
-chi_square_test(a_df)
+chi2, contingency_table = chi_square_test(a_df)
+cramers_v(chi2, contingency_table)
 ordinal_logistic_regression(a_df)
 kruskal_wallis_test(a_df)
 spearman_correlation(a_df)
