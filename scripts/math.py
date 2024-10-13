@@ -4,9 +4,9 @@ from scipy.stats import chi2_contingency, spearmanr, kruskal, f_oneway
 from statsmodels.miscmodels.ordinal_model import OrderedModel
 import statsmodels.api as sm
 
-# Load the data
-a_df = pd.read_csv('a.csv')
-b_df = pd.read_csv('b.csv')
+
+a_df = pd.read_csv('films_by_decade_country_genre.csv')
+b_df = pd.read_csv('rating_percentages_by_country.csv')
 
 # 1. Chi-Square Test (RQ1): Association between Genre, Country, and Bechdel Score
 def chi_square_test(data):
@@ -52,7 +52,6 @@ def tukey_posthoc(data):
     result = tukey.tukeyhsd()
     print(f"Tukey HSD Post-hoc Test:\n{result}\n")
 
-# Functions to handle the second dataset (b.csv)
 # Using Kruskal-Wallis for comparing Bechdel Test distributions across nationalities (USA, Others)
 def kruskal_b(data):
     usa_scores = data[data['country'] == 'USA'][['p0', 'p1', 'p2', 'pPassed']].values.flatten()
@@ -60,7 +59,6 @@ def kruskal_b(data):
     stat, p = kruskal(usa_scores, others_scores)
     print(f"Kruskal-Wallis on Countries (b.csv):\nStatistic: {stat}, p-value: {p}\n")
 
-# Execute tests on the first dataset (a.csv)
 print("\n--- Test Results ---\n")
 chi2, contingency_table = chi_square_test(a_df)
 cramers_v(chi2, contingency_table)
