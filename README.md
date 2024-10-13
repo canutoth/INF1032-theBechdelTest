@@ -10,8 +10,6 @@ Welcome to the repository for *Voices Unheard: The Bechdel Test*, a final projec
 
 > **/data:** Contains raw and processed data collected from (insert api names and whatever here).
 > 
-> **/statistics:** Describes all the mathematical and statistical tests conducted in the project, providing a quantitative, evidence-based evaluation of the data.
-> 
 > **/scripts:** Includes all scripts used for data collection, data cleaning, statistical analysis, and visualization.  A /requirements.txt file and further instructions are provided to ensure replicability.
 > 
 > **/results:** Contains the output of all analyses, including: visualizations (graphs showing trends in gender representation), statistical results (outputs from tests such as Chi-Square and regression analysis) and summary tables of key findings.
