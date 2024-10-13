@@ -30,10 +30,8 @@ For the best use of the scripts found on this repository, you should start by ch
 We advise you to grab the data sample to compile your code at /data but also feel free to extract your own data by your own parameters/needs/filters as instructed at /data_collection.
 
 Key scripts include:
--
--
--
--
+
+- abc.py
 - /math.py: Runs various statistical tests, such as Chi-Square, regression analysis, and correlation tests. Further explanation and listing of all tests can be found at /statistics.
 
 ### Results
