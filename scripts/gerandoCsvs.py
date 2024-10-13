@@ -2,15 +2,20 @@ import pandas as pd
 import json
 
 # Carregar os dados dos JSONs
-with open('MergedMovies.json', 'r') as file:
-    merged_movies = json.load(file)
+def load_movies(file_path):
+    with open(file_path, 'r') as file:
+        return json.load(file)
 
-with open('MergedBrazilianAndOtherMovies.json', 'r') as file:
-    final_merged_movies = json.load(file)
+# Carregar ambos os arquivos JSON
+merged_movies = load_movies('MergedMovies.json')
+final_merged_movies = load_movies('MergedBrazilianAndOtherMovies.json')
 
-# 1. Criar o CSV 'a.csv': filme, década, score, nacionalidade, gênero
+# Combinar os dois conjuntos de filmes
+combined_movies = merged_movies + final_merged_movies
+
+# 1. Criar o CSV 'a.csv': filme, década, score, nacionalidade, todos os gêneros
 def create_a_csv(movies, output_path):
-    # List to store the data
+    # Lista para armazenar os dados
     data = []
     for movie in movies:
         title = movie.get('title')
@@ -22,11 +27,10 @@ def create_a_csv(movies, output_path):
             decade = None
         # Score (Assumindo que 'rating' está presente e é o Bechdel score)
         rating = movie.get('rating', None)
-        # Nacionalidade (Assumindo que o campo 'country' existe)
-        country = 'USA'
-        # country = 'Others'
-        # Gênero
-        genre = movie.get('details', {}).get('Genre', '').split(',')[0] if movie.get('details', {}).get('Genre') else None
+        # Nacionalidade
+        country = 'USA' if 'United States' in movie.get('details', {}).get('Country', '') else 'Others'
+        # Gêneros (pegar todos os gêneros)
+        genre = movie.get('details', {}).get('Genre', '') if movie.get('details', {}).get('Genre') else None
         
         data.append([title, decade, rating, country, genre])
 
@@ -35,19 +39,18 @@ def create_a_csv(movies, output_path):
     df.to_csv(output_path, index=False)
     print(f"Arquivo {output_path} gerado com sucesso.")
 
-create_a_csv(merged_movies, 'aUSA.csv')
-# create_a_csv(final_merged_movies, 'aOthers.csv')
+# Combina os dois JSONs em um único CSV
+create_a_csv(combined_movies, 'aCombined.csv')
 
 # 2. Criar o CSV 'b.csv': década, % nota 0, % nota 1, % nota 2, % nota 3 (por nacionalidade)
 def create_b_csv(movies, output_path):
-    # Create a dictionary to store the percentage data
+    # Dicionário para armazenar as porcentagens
     data = {}
     
     for movie in movies:
         year = movie.get('year')
         rating = movie.get('rating', None)
-        country = 'USA'
-        # country = 'Others'
+        country = 'USA' if 'United States' in movie.get('details', {}).get('Country', '') else 'Others'
         
         if year:
             decade = (year // 10) * 10
@@ -77,5 +80,5 @@ def create_b_csv(movies, output_path):
     df.to_csv(output_path, index=False)
     print(f"Arquivo {output_path} gerado com sucesso.")
 
-# create_b_csv(final_merged_movies, 'bOthers.csv')
-create_b_csv(merged_movies, 'bUSA.csv')
+# Combina os dois JSONs em um único CSV para análise de porcentagens
+create_b_csv(combined_movies, 'bCombined.csv')
