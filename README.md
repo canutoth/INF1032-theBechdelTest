@@ -21,9 +21,7 @@ Welcome to the repository for *Voices Unheard: The Bechdel Test*, a final projec
 Our project uses data from the following sources:
 
 - Bechdel Test API: Determines whether films pass the Bechdel Test based on three criteria.
-- IMDb: Provides metadata such as title, release year, genre, and country.
-- Box Office Mojo: Contains financial information to analyze the economic impact of gender representation in cinema.
-- Rotten Tomatoes and Metacritic: Offer critical and audience reviews for an additional perspective on film reception.
+- OMDb: Provides metadata such as title, release year, genre, and country.
 
 To ensure replicability, `/data` also:
 1. Explains the data extraction process from the various APIs and methods used and
