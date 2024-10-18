@@ -60,5 +60,5 @@ For any questions or further information, please contact the developers of this 
 
 - Isabela Sobrenome (e-mail)
 - Júlia Tadeu (e-mail)
-- Luana Sobrenome (e-mail)
+- Luana Bueno (lubuenorj@gmail.com)
 - Theo Canuto (canutoeotheo@gmail.com)
