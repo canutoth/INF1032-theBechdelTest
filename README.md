@@ -2,7 +2,7 @@
 
 ### Overview
 
-Welcome to the repository for *Voices Unheard: The Bechdel Test*, a final project for the Introduction to Data Science chair at Pontifical Catholic University of Rio de Janeiro (PUC-Rio). This repository contains all the codes, data, and resources used to build the project, which examines gender representation in cinema using the Bechdel Test as the primary evaluation tool.
+Welcome to the repository for *Voices Unheard: The Bechdel Test*, a project for the Introduction to Data Science chair at Pontifical Catholic University of Rio de Janeiro (PUC-Rio). This repository contains all the codes, data, and resources used to build the project, which examines gender representation in cinema using the Bechdel Test as the primary evaluation tool.
 
 ***
 
@@ -21,9 +21,7 @@ Welcome to the repository for *Voices Unheard: The Bechdel Test*, a final projec
 Our project uses data from the following sources:
 
 - Bechdel Test API: Determines whether films pass the Bechdel Test based on three criteria.
-- IMDb: Provides metadata such as title, release year, genre, and country.
-- Box Office Mojo: Contains financial information to analyze the economic impact of gender representation in cinema.
-- Rotten Tomatoes and Metacritic: Offer critical and audience reviews for an additional perspective on film reception.
+- OMDb: Provides metadata such as title, release year, genre, and country.
 
 To ensure replicability, `/data` also:
 1. Explains the data extraction process from the various APIs and methods used and
@@ -60,7 +58,7 @@ We welcome contributions from the community. If you have any suggestions or impr
 
 For any questions or further information, please contact the developers of this project:
 
-- Isabela Sobrenome (e-mail)
-- Júlia Tadeu (e-mail)
-- Luana Sobrenome (e-mail)
-- Theo Canuto (e-mail)
+- Isabela Sobrenome (belabpontual@gmail.com)
+- Júlia Tadeu (ju.tadeu.azevedo@gmail.com)
+- Luana Bueno (lubuenorj@gmail.com)
+- Theo Canuto (canutoeotheo@gmail.com)
