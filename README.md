@@ -58,7 +58,7 @@ We welcome contributions from the community. If you have any suggestions or impr
 
 For any questions or further information, please contact the developers of this project:
 
-- Isabela Sobrenome (belabpontual@gmail.com)
+- Isabela Pontual (belabpontual@gmail.com)
 - Júlia Tadeu (ju.tadeu.azevedo@gmail.com)
 - Luana Bueno (lubuenorj@gmail.com)
 - Theo Canuto (canutoeotheo@gmail.com)
