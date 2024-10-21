@@ -36,11 +36,11 @@ We advise you to grab the data sample to compile your code or to extract your ow
 
 **Key scripts include:**
 
-- `APIRequestManager.swift`: This Swift file defines a singleton class `APIRequestManager`, which manages two arrays: one for `WelcomeElement` objects and another for `CompleteMovie` objects. It ensures a single shared instance of the class can be accessed throughout the app.
-- `ContentView.swift`: This SwiftUI file defines a `ContentView` that displays a button for users to fetch movies. When the button is clicked, it triggers an asynchronous task that retrieves movies using the BechdelTest API, then fetches detailed information for each movie from the OMDb API. The retrieved movies are classified by country and by decade, and relevant data is printed to the console for further analysis.
+- `APIRequestManager.swift`: Defines a singleton class `APIRequestManager`, which manages two arrays: one for `WelcomeElement` objects and another for `CompleteMovie` objects. It ensures a single shared instance of the class can be accessed throughout the app.
+- `ContentView.swift`: Defines a `ContentView` that displays a button for users to fetch movies. When the button is clicked, it triggers an asynchronous task that retrieves movies using the BechdelTest API, then fetches detailed information for each movie from the OMDb API. The retrieved movies are classified by country and by decade, and relevant data is printed to the console for further analysis.
 - `Models.swift`: Contains the model of the results returned by the BechdelTest api merged with the OMDb API. 
-- `apiRequest.swift`: Send a request to the BechdelTest API and, for each film returned, make a subsequent request to the OMDb API to retrieve additional details about the film.
-- `infoPList.xcprivacy`: This file allows the app to make insecure HTTP requests to `omdbapi.com` and its subdomains.
+- `apiRequest.swift`: Sends a request to the BechdelTest API and, for each film returned, make a subsequent request to the OMDb API to retrieve additional details about the film.
+- `infoPList.xcprivacy`: Allows the app to make insecure HTTP requests to `omdbapi.com` and its subdomains.
 - `math.py`: Runs various statistical tests, such as Chi-Square, regression analysis, and correlation tests. Further explanation and listing of all tests can be found at /data.
 
 ***
