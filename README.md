@@ -38,7 +38,7 @@ We advise you to grab the data sample to compile your code or to extract your ow
 
 - `abc.py`:
 - `aeiou.swift`:
-- `math.py`: Runs various statistical tests, such as Chi-Square, regression analysis, and correlation tests. Further explanation and listing of all tests can be found at /statistics.
+- `math.py`: Runs various statistical tests, such as Chi-Square, regression analysis, and correlation tests. Further explanation and listing of all tests can be found at /data.
 
 ***
 
