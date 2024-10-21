@@ -36,8 +36,6 @@ We advise you to grab the data sample to compile your code or to extract your ow
 
 **Key scripts include:**
 
-- `abc.py`:
-- `aeiou.swift`:
 - 'ContentView.swift': 
 - 'Models.swift': 
 - 'apiRequest.swift': 
