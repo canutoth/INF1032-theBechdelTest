@@ -9,7 +9,6 @@ import Foundation
 import SwiftUI
 import Foundation
 
-//modelo com as infos do omdb
 // MARK: - OMDb Model
 struct OMDbMovieDetails: Codable {
     let title: String?
@@ -77,7 +76,7 @@ struct Rating: Codable {
     }
 }
 
-// MARK: - WelcomeElement (Filmes principais da API Bechdel)
+// MARK: - WelcomeElement (API Bechdel movies)
 struct WelcomeElement: Codable {
     let year: Int
     let rating: Int
@@ -87,7 +86,7 @@ struct WelcomeElement: Codable {
 
 
 
-// MARK: - CompleteMovie (Combina as informações de WelcomeElement e IMDbMovieDetails)
+// MARK: - CompleteMovie (WelcomeElement + IMDbMovieDetails)
 struct CompleteMovie {
     let year: Int
     let rating: Int
