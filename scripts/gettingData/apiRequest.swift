@@ -11,16 +11,6 @@ import Foundation
 // Função que faz a busca de todos os filmes do BechdelTest e retorna a lista de filmes ordenados
 func bechdelSearch(isMock: Bool) async throws -> [WelcomeElement] {
     
-    if isMock == true {
-            
-            let urlString = Bundle.main.url(forResource: "movies", withExtension: "json")
-            let data = try Data(contentsOf: urlString!)
-            var welcome = try JSONDecoder().decode([WelcomeElement].self, from: data)
-            welcome = welcome.filter { $0.year >= 1930 }
-            welcome.sort { $0.year < $1.year }
-            return welcome
-            
-    } else {
         let urlString = "https://bechdeltest.com/api/v1/getAllMovies"
         
         guard let url = URL(string: urlString) else {
@@ -39,7 +29,7 @@ func bechdelSearch(isMock: Bool) async throws -> [WelcomeElement] {
         // Ordenar os filmes por ano
         welcome.sort { $0.year < $1.year }
         return welcome
-    }
+    
     
 }
 
