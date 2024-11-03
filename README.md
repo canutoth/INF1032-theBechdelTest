@@ -8,7 +8,7 @@ Welcome to the repository for *Voices Unheard: The Bechdel Test*, a project for 
 
 ### Repository Structure
 
-> **/data:** Contains raw and processed data collected from (insert api names and whatever here).
+> **/data:** Contains raw and processed data collected from The Bechdel Test and The OMDB APIs.
 > 
 > **/scripts:** Includes all scripts used for data collection, data cleaning, statistical analysis, and visualization.  A /requirements.txt file and further instructions are provided to ensure replicability.
 > 
